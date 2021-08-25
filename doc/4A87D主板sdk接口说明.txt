@@ -1,0 +1,148 @@
+
+一， GPIO接口说明。
+
+1， GPIO接口类为： LibGpio
+	对应的接口函数有：
+
+    public native boolean set_gpio_output(int pin, int value);
+	设置gpio口pin的输出值为value.
+
+    public native boolean set_gpio_input(int pin);
+	设置gpio口pin为输入状态。
+
+    public native boolean get_gpio_value(int pin);
+	获取gpio口pin的状态。 注：此操作前， 需要将对应的GPIO口pin设置为输入状态。
+
+    public native boolean set_gpio_dir(int pin, int dir);
+	更改gpio口pin的输入、输出状态为dir状态。 dir的值为在0或1. 即：
+	    GPIO_OUTPUT_MODE 	输出模式
+	    GPIO_INPUT_MODE	输入模式
+
+    public native boolean set_gpio_value(int pin, int value);
+	设置gpio口pin的值为value. 
+	value值为0，对应的GPIO口输出为低， 1，对应的GPIO口输出为高。
+
+    public native boolean is_gpio_valid(int pin);
+	查看对应的gpio口pin是否在支持的范围之内。 输出为1代表支持。 0代表不支持。
+
+
+2,注意事项 
+	pin的值要在支持的范围内。即 0 < pin < 179.
+	value的值为0或1. 即0对应的gpio口为低电平， 1 对应的gpio口为高电平。
+
+        LibGpio的操作是基于库libgpio_jni.so上操作的。 apk对gpio操作一定要带上这个库。
+	LibGpio类的具体操作详见文件LibGpio.java文件。
+
+二， 串口和RS485的接口。
+	当前主板的调试串口对应的端口设备节点为：dev/ttyS0， RS485对应的端口设备节点为： /dev/ttyS2
+	串口和RS485的接口类为SerialPort.  相关的接口有如下：
+	public InputStream getInputStream()
+	获取输入流句柄。
+	public OutputStream getOutputStream()、
+	获取输出流的句柄。
+	public void EnableRS485()
+	使能RS485操作。 注： 使能操作应该在打开串口之后。
+	public native void close();
+	关闭对应的串口。
+	public SerialPort(File device, int baudrate, int flags)
+	打开对应的串口。 参数如下：
+		device --- 指定哪个串口，
+		如："UART0", "UART1", "UART2", "UART3"
+		目前主板的串口只有两个引出， 
+			即UART0口---- 可用于跟踪系统串口LOG。
+			 UART2口 ---- 目前用于RS485。
+			
+	注： 串口及RS485的演示操作可参看Uart_Test.java文件。
+	SerialPort类的具体处理，可参看SerialPort.java文件。SerialPort的操作依赖于libserial_port_jni.so库。
+	另外， 客户如果不想使用上面的接口的话，也可以自已实现由设备节点的方式来访问串口和RS485。
+
+三， 补光灯的接口操作。
+	更新：
+	当前主板的补光灯可由PWM来控制。 对应的so库为：libleds_jni.so
+	其接口类为： LibLeds.jav。 提供接口如下：
+	public native boolean set_aux_led(int level);
+	设置补光灯亮度。 level值的范围为0~255. 其中0为关闭。 255是最大亮度。 
+    	public native boolean set_infra_led(int level);
+	设置红外灯亮度。 level值的范围为0~255. 其中0为关闭。 255是最大亮度。 	
+	具体操作可参看sdkdemo中的Lights_Test.java类。
+
+四， 红外灯的接口操作。
+	更新：
+	当前主板的补光灯可由PWM来控制。 对应的so库为：libleds_jni.so
+	其接口类为： LibLeds.jav。 提供接口如下：
+	public native boolean set_aux_led(int level);
+	设置补光灯亮度。 level值的范围为0~255. 其中0为关闭。 255是最大亮度。 
+    	public native boolean set_infra_led(int level);
+	设置红外灯亮度。 level值的范围为0~255. 其中0为关闭。 255是最大亮度。 	
+	具体操作可参看sdkdemo中的Infrared_Distance_Test.java类。
+
+五， 摄像头接口。
+	摄像头接口操作请使用ANDROID默认的接口方式处理。 
+	操作的摄像头可使用如下两个：
+		Camera.CameraInfo.CAMERA_FACING_BACK
+		Camera.CameraInfo.CAMERA_FACING_FRONT
+
+六， 按键。
+	主板提供了一个PWRKEY按键。 长按此键时， 要系统异常时可以使用系统重启。 短按的话， 系统会睡眠状态。 注：后续系统会取消PWRKEY短按功能。
+	另外， 主板还提供了四个按键。 目前配置的键值为： 上/下/左右这几个键。  按键的操作与ANDROID默认一致。
+
+七， PSAM卡接口。
+    PSAM卡接口使用LibPsam接口类来处理。 相关的接口有如下：
+
+    public native boolean psam_open();
+    打开PSAM模块设备。
+    public native boolean psam_close();
+    关闭PSAM模块设备。
+    public native int psam_get_version();
+    获取当前PSAM模块设备的版本信息。
+    public native int psam_set_bandrate(int bandrate);
+    设备当前PSAM模块设备通讯的波特率。
+    public native int psam_set_clock(int clk);
+    设备当前PSAM模块设备的时钟。
+    public native byte[] psam_send_package(byte[] pkg, int len, int sam, int type);
+    向指定的PSAM卡发送一个数据包。
+    public native boolean psam_is_valid();
+    查看当前PSAM模块是否有效。
+
+    相关操作可参见演示代码类：Psam_Test
+
+八， 数码管接口。
+    数码管接口使用LibDigitaltube类来处理。 接口函数如下：
+    public native boolean digitaltube_open();
+    打开数码管设备。
+    public native boolean digitaltube_close();
+    关闭数码管设备。
+    public native int digitaltube_write_data(int data);
+    向数码管设备发送显示的金额数值。 数据组成形式是以分为单位的。
+    如: 12.34元， 那么发送的数值就为：1234.
+
+    相关的操作可参看演示代码类： DigitalTube_Test
+
+九， 扫码模块接口。
+     主要是从USB口中读出相关设备的数值。
+     具体操作，可参看演示类： BarCode_Scan_Test
+
+十， NFC接口。
+    NFC接口操作请使用ANDROID标准的接口方式。
+
+十二， 双色LED显示灯接口。
+    4A87D主板系统指示灯是以GPIO来控制的。 目前显示两种灯： 红灯， 蓝灯。
+    其中： 红灯的GPIO为： GPIO165    ， 蓝灯的GPIO为： GPIO167
+    GPIO的接口操作可由LibGpio类来处理。
+    注： 由红灯与蓝灯控制是互动的， 所以， 红灯与蓝灯控制的GPIO控制是同时的，而且是一致的。
+    如，
+        红灯亮： GPIO165 = 0 以及 GPIO167 = 0.
+        蓝灯高： GPIO165 = 1 以及 GPIO167 = 1.
+
+十三， USB OTG功能。
+	目前主板通过USBHUB引出几组USB接口， 可支持OTG功能，不需要再特殊的使能OTG。 当然如果使用的USB还是不够的话， 也可将下载/调试的USB接口由SLAVE使能为HOST模式来实现。
+	注： 下载/调试口的USB切为HOST模式后， 如果客户已打开ADB功能。 此时的ADB功能就无效了。 如果需要再次切换回ADB功能， 就需要在软件上将此口的USB模式由HOST切回为SLAVE
+	的模式。 切换USB下载/调试口模式的类为：LibOtg， 相关的接口函数有：
+		    public native boolean enable_otg(int enable);
+		    使能USB的OTG功能。 enable = 1, 使USB进入HOST模式。  enable = 0, 使USB进入SLAVE模式。
+    具体操作可参看演示类： Otg_Power_Test
+
+
+
+
+

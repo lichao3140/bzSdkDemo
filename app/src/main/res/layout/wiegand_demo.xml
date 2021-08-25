@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="10dip"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dip"
+            android:gravity="center"
+            android:text="@string/wiegand_demo_title"
+            android:textAppearance="?android:attr/textAppearanceLarge" >
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/wgnd_hid_text_id"
+                android:layout_width="220dip"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3pt"
+                android:text="@string/wgnd_hid_tx" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/wgnd_hid_content"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:inputType="number"
+                android:numeric="integer"
+                android:singleLine="true"></EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/wgnd_pid_text_id"
+                android:layout_width="220dip"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3pt"
+                android:text="@string/wgnd_pid_tx" >
+            </TextView>
+
+            <EditText
+                android:id="@+id/wgnd_pid_content"
+                android:layout_width="100dip"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:inputType="number"
+                android:numeric="integer"
+                android:singleLine="true"></EditText>
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/wgnd_test_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:orientation="vertical" >
+
+            <RadioButton
+                android:id="@+id/wgnd26_test_on_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wiegand26_tst_turn_on" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/wgnd32_test_on_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wiegand32_tst_turn_on" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/wgnd34_test_on_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wiegand34_tst_turn_on" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/wgnd44_test_on_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wiegand44_tst_turn_on" >
+            </RadioButton>
+
+            <RadioButton
+                android:id="@+id/wgnd46_test_on_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/wiegand46_tst_turn_on" >
+            </RadioButton>
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/wgnd_test_send_button"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dip"
+            android:gravity="center"
+            android:text="@string/wiegand_tst_send" >
+
+            <!-- android:gravity="right" -->
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

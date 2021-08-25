@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.sdkdemo">
+
+    <!--摄像头相关权限-->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="true" />
+
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ItemListActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".ItemListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.ItemListActivity" />
+        </activity>
+        <activity
+            android:name=".GpioTest"
+            android:label="@string/title_item_gpio"
+            android:parentActivityName=".GpioTest">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.GpioTest" />
+        </activity>
+        <activity
+            android:name=".Wiegand_Test"
+            android:label="@string/title_item_wiegand"
+            android:parentActivityName=".Wiegand_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.Wiegand_Test" />
+        </activity>
+        <activity
+            android:name=".Uart_Test"
+            android:label="@string/title_item_uart"
+            android:exported="true"
+            android:parentActivityName=".Uart_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.Uart_Test" />
+        </activity>
+        <activity
+            android:name=".Otg_Power_Test"
+            android:label="@string/title_item_otg"
+            android:parentActivityName=".Otg_Power_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.Otg_Power_Test" />
+        </activity>
+        <activity
+            android:name=".Infrared_Distance_Test"
+            android:label="@string/title_item_infrared_distance"
+            android:parentActivityName=".Infrared_Distance_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.Infrared_Distance_Test" />
+        </activity>
+        <activity
+            android:name=".Lights_Test"
+            android:label="@string/title_item_lights"
+            android:parentActivityName=".Lights_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.Lights_Test" />
+        </activity>
+        <activity
+            android:name=".Printer_Test"
+            android:label="@string/title_item_printer"
+            android:parentActivityName=".Printer_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.Printer_Test" />
+        </activity>
+        <activity
+            android:name=".Camera_Test"
+            android:label="@string/title_item_camera"
+            android:parentActivityName=".Camera_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.Camera_Test" />
+        </activity>
+        <activity
+            android:name=".Psam_Test"
+            android:label="@string/title_item_psam"
+            android:parentActivityName=".Psam_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.Psam_Test" />
+        </activity>
+        <activity
+            android:name=".DigitalTube_Test"
+            android:label="@string/title_item_digitaltube"
+            android:parentActivityName=".DigitalTube_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.DigitalTube_Test" />
+        </activity>
+        <activity
+            android:name=".NFC_Test"
+            android:label="@string/title_item_nfc"
+            android:parentActivityName=".NFC_Test">
+            <intent-filter>
+                <action android:name = "android.nfc.action.NDEF_DISCOVERED" />
+                <data android:mimeType = "text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.NFC_Test" />
+        </activity>
+        <activity
+            android:name=".BarCode_Scan_Test"
+            android:label="@string/title_item_barcode_scan"
+            android:parentActivityName=".BarCode_Scan_Test">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.sdkdemo.BarCode_Scan_Test" />
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

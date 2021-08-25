@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Bluetooth start -->
+    <string-array name="uart_baudrate">
+        <item>9600</item>
+        <item>19200</item>
+        <item>38400</item>
+        <item>57600</item>
+        <item>115200</item>
+        <item>230400</item>
+        <item>460800</item>
+        <item>500000</item>
+        <item>576000</item>
+        <item>921600</item>
+    </string-array>
+
+    <string-array name="uart_port_name">
+<!--        <item>UART0</item>  -->
+        <item>UART1</item>
+        <item>UART2</item>
+        <item>UART3</item>
+<!--    <item>USB</item> -->
+    </string-array>
+
+    <string-array name="demo_item_name_array">
+        <item>@string/title_item_gpio</item>
+        <item>@string/title_item_wiegand</item>
+        <item>@string/uart_and_rs485</item>
+        <item>@string/title_item_otg</item>
+        <item>@string/infrared_light_demo</item>
+        <item>@string/title_item_lights</item>
+    </string-array>
+
+    <string-array name="psam_clock">
+        <item>1M</item>
+        <item>2M</item>
+        <item>3M</item>
+        <item>4M</item>
+        <item>6M</item>
+        <item>12M</item>
+    </string-array>
+
+    <string-array name="psam_card">
+        <item>Card 1</item>
+        <item>Card 2</item>
+        <item>Card 3</item>
+        <item>Card 4</item>
+        <item>Card 5</item>
+    </string-array>
+
+</resources>

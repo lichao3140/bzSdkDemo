@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/gpio_text_id"
+            android:layout_width="220dip"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3pt"
+            android:text="@string/gpio_port_value_tx" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/gpio_value_content"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="number"
+            android:numeric="integer"
+            android:singleLine="true"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/gpio_port_output_tx"
+            android:layout_weight="1"/>
+
+        <RadioGroup
+            android:id="@+id/gpio_output_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+
+            <RadioButton
+                android:id="@+id/gpio_high_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gpio_output_high" />
+
+            <RadioButton
+                android:id="@+id/gpio_low_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gpio_output_low" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8pt"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/gpio_test_write_btn"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content"
+            android:text="@string/gpio_test_start"></Button>
+
+        <Button
+            android:id="@+id/gpio_test_read_btn"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content"
+            android:text="@string/gpio_test_read"></Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/gpio_port_state_id"
+            android:layout_width="150dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3pt"
+            android:text="@string/gpio_current_state_tx" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/gpio_test_value_content"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content" >
+        </TextView>
+    </LinearLayout>
+</LinearLayout>

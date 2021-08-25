@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/uart_recieve_data_content"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:singleLine="false"
+            android:background="@drawable/edittext_background"></TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/uart_port_tx" >
+        </TextView>
+
+        <Spinner
+            android:id="@+id/uart_port_spi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="50dp"
+            android:entries="@array/uart_port_name">
+        </Spinner>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/uart_rate_type" >
+        </TextView>
+
+        <Spinner
+            android:id="@+id/uart_rate_rw_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"            
+            android:layout_weight="1" 
+        	android:layout_marginLeft="50dp"
+        	android:entries="@array/uart_baudrate">
+        </Spinner>        
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/uart_or_rs485_type"
+            android:layout_weight="1"/>
+        <RadioGroup
+            android:id="@+id/uart_or_rs485_mode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1" >
+            <RadioButton
+                android:id="@+id/uart_mode_enable_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/uart_type" />
+            <RadioButton
+                android:id="@+id/rs485_mode_enable_radio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rs485_type" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/uart_tx_text_id"
+            android:layout_width="220dip"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3pt"
+            android:text="@string/gpio_port_value_tx" >
+        </TextView>
+
+        <EditText
+            android:id="@+id/uart_tx_string_content"
+            android:layout_width="fill_parent"
+            android:layout_height="60dip"
+            android:autofillHints=""
+            android:background="@drawable/edittext_background"
+            android:inputType="textMultiLine|text"
+            android:singleLine="true"></EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8pt"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/uart_send_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/uart_send_txt"></Button>
+
+        <Button
+            android:id="@+id/uart_recieve_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/uart_recieve_txt"></Button>
+
+        <Button
+            android:id="@+id/uart_stop_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/uart_test_stop" />
+        <Button
+            android:id="@+id/uart_clr_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="清除接收数据" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RS485 use UART2,9600; UART use UART1" />
+</LinearLayout>
